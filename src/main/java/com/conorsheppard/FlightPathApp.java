@@ -2,7 +2,9 @@ package com.conorsheppard;
 
 import picocli.CommandLine;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
@@ -41,15 +43,13 @@ public class FlightPathApp implements Callable<Integer> {
             return 1;
         }
 
-        int cost = costs[fromIndex][toIndex];
-        if (cost == 0) {
-            System.out.printf("No direct flight from %s to %s.%n", capitalize(from), capitalize(to));
-        } else {
-            System.out.printf("Flying from %s to %s costs %d Silver Stags.%n",
-                    capitalize(from), capitalize(to), cost);
-        }
-
+        findAllPaths(fromIndex, toIndex, new ArrayList<>(), 0);
         return 0;
+    }
+
+    public static void main(String[] args) {
+        int exitCode = new CommandLine(new FlightPathApp()).execute(args);
+        System.exit(exitCode);
     }
 
     private int getCityIndex(String name) {
@@ -66,8 +66,32 @@ public class FlightPathApp implements Callable<Integer> {
                 .collect(Collectors.joining(" "));
     }
 
-    public static void main(String[] args) {
-        int exitCode = new CommandLine(new FlightPathApp()).execute(args);
-        System.exit(exitCode);
+    private void findAllPaths(int from, int to, List<Integer> path, int cost) {
+        path.add(from);
+
+        if (from == to) {
+            System.out.println(formatPath(path) + ": " + cost);
+        } else {
+            for (int next = from + 1; next < costs.length; next++) {
+                if (costs[from][next] > 0) {
+                    findAllPaths(next, to, new ArrayList<>(path), cost + costs[from][next]);
+                }
+            }
+        }
+    }
+
+    private String formatPath(List<Integer> path) {
+        return path.stream()
+                .map(this::getCityName)
+                .collect(Collectors.joining(" → "));
+    }
+
+    private String getCityName(int index) {
+        return cityToIndex.entrySet().stream()
+                .filter(e -> e.getValue() == index)
+                .map(Map.Entry::getKey)
+                .map(this::capitalize)
+                .findFirst()
+                .orElse("Unknown");
     }
 }
