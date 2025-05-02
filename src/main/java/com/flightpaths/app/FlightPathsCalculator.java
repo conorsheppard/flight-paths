@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FlightPathsCalculator {
-    private int[][] costs;
-    private Map<String, Integer> cities;
+    private final int[][] costs;
+    private final Map<String, Integer> cities;
 
     public FlightPathsCalculator(int[][] costs, Map<String, Integer> cities) {
         this.costs = costs;
