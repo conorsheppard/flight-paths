@@ -1,17 +1,34 @@
-Because of the bounded scope of the challenge I have decided to keep everything in one class for simplicity rather
-than bloating the project with extra classes.
+# ✈️ Flight Paths
 
-I wanted to keep the findAllPathsCollect method signature as svelt or unbusy as possible so I opted to store the costs
-map at the class level, the trade-off being that to use a new costs map, you'd have to create a new FlightPathsCalculator.
-However, I think this improves readability and you can still do as many calculations with different departure and destination
-points as you wish on that map.
+A command-line Java application that calculates all possible flight paths between two cities in the world of **Game of Thrones**, showing the total cost for each valid route (north-to-south only). Built with Java 24, Picocli, and Docker.
 
-Results are in the order they are retrieved by the flight costs calculator, not by cost although this could be easily updated.
+## 🧭 Overview
 
+The application represents a simplified flight network as a **directed acyclic graph (DAG)**, where each city is a node and each flight (with an associated cost) is a directed edge going southward. Given two cities, the app finds all valid paths and displays the cost of each.
 
+## 📦 Features
 
-### How to run
+- Accepts **city names** (e.g. `castle black`, `king's landing`) instead of indices.
+- Displays **all valid southbound paths** with individual total costs.
+- Enforces **north-to-south travel** rules only.
+- Supports **Dockerized execution**.
+- Includes **unit tests** for correctness.
 
-Docker
+## 🏰 Supported Cities
 
-Java
+| City Index | Name            |
+|------------|-----------------|
+| 0          | Castle Black     |
+| 1          | Winterfell       |
+| 2          | Riverrun         |
+| 3          | King's Landing   |
+
+> Note: City names are case-insensitive and should be input as strings (e.g., `"Castle Black"` or `"castle black"`).
+
+## 🚀 Running with Docker
+
+To run from the command line using Docker:
+
+```shell
+./bin/list-flight-paths "castle black" "king's landing"
+```
