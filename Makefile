@@ -12,8 +12,8 @@ docker-build:
 	docker build . -t conorsheppard/flight-paths
 
 run:
-	#docker run --rm --name flight-paths flight-paths $(from) $(to)
-	docker run --rm --name flight-paths flight-paths "castle black" "riverrun"
+	# Usage: make run from="castle black" to="riverrun"
+	docker run --rm --name flight-paths conorsheppard/flight-paths "$(from)" "$(to)"
 
 .SILENT:
-.PHONY: default run
+.PHONY: default clean build docker-build run

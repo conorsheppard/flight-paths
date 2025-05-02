@@ -17,7 +17,7 @@
             <path>
               <groupId>org.projectlombok</groupId>
               <artifactId>lombok</artifactId>
-              <version>${lombok.version}</version>
+              <version>1.18.38</version>
             </path>
           </annotationProcessorPaths>
         </configuration>
@@ -28,7 +28,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.conorsheppard.FlightPathApp</mainClass>
+              <mainClass>com.conorsheppard.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -91,7 +91,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.conosheppard.FlightPathApp</mainClass>
+              <mainClass>com.conosheppard.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -102,12 +102,32 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.36</version>
+      <version>1.18.38</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.12.2</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit-jupiter-api</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit-jupiter-params</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit-jupiter-engine</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
   <properties>
-    <lombok.version>1.18.36</lombok.version>
+    <lombok.version>1.18.38</lombok.version>
     <maven.compiler.target>24</maven.compiler.target>
     <maven.compiler.source>24</maven.compiler.source>
   </properties>

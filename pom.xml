@@ -10,20 +10,26 @@
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
         <maven.compiler.target>24</maven.compiler.target>
-        <lombok.version>1.18.36</lombok.version>
+        <lombok.version>1.18.38</lombok.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <version>1.18.38</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>info.picocli</groupId>
             <artifactId>picocli</artifactId>
-            <version>4.7.6</version>
+            <version>4.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.12.2</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -41,7 +47,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
+                            <version>1.18.38</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -53,7 +59,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.conorsheppard.FlightPathApp</mainClass>
+                            <mainClass>com.conorsheppard.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -118,7 +124,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.conosheppard.FlightPathApp</mainClass>
+                            <mainClass>com.conosheppard.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
