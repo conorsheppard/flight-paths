@@ -1,6 +1,6 @@
-package com.conorsheppard;
+package com.flightpaths;
 
-import com.conorsheppard.app.FlightPathsCalculator;
+import com.flightpaths.app.FlightPathsCalculator;
 import picocli.CommandLine;
 
 import java.util.ArrayList;

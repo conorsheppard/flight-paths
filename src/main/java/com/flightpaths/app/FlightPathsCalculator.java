@@ -1,4 +1,4 @@
-package com.conorsheppard.app;
+package com.flightpaths.app;
 
 import java.util.ArrayList;
 import java.util.Arrays;

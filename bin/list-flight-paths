@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-IMAGE="conorsheppard/flight-paths:latest"
+IMAGE="dockeropsengineer/flight-paths:latest"
 
 if [[ -z $(docker images -q "$IMAGE") ]]; then
   docker pull "$IMAGE" > /dev/null

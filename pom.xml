@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.conosheppard</groupId>
+    <groupId>com.flightpaths</groupId>
     <artifactId>flight-paths</artifactId>
     <version>1.0.0</version>
 
@@ -59,7 +59,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.conorsheppard.Main</mainClass>
+                            <mainClass>com.flightpaths.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -84,7 +84,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.5.0</version>
                 <configuration>
-                    <mainClass>com.conorsheppard.Application</mainClass>
+                    <mainClass>com.flightpaths.Application</mainClass>
                 </configuration>
             </plugin>
 

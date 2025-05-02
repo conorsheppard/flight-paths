@@ -1,4 +1,4 @@
-package com.conorsheppard.app;
+package com.flightpaths.app;
 
 import org.junit.jupiter.api.Test;
 
