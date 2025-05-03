@@ -159,8 +159,19 @@ class FlightPathsCalculatorTest {
                                 "Castle Black -> Highgarden -> Dorne: 70",
                                 "Castle Black -> Dorne: 70"
                         }
+                ),
+                Arguments.of(
+                        "a",
+                        "b",
+                        new int[][]{
+                                {0, 0},
+                                {0, 0},
+                        },
+                        Map.of("a", 0, "b", 1),
+                        0,
+                        "",
+                        new String[]{}
                 )
-
         );
     }
 
