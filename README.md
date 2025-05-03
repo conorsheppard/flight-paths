@@ -34,15 +34,15 @@ To run from the command line using Docker:
 
 The preferred way to run this application is using the containerized approach described above.
 That said, if you're comfortable with Maven and Java, you’re welcome to run it directly.
-Note, however, that this method is not considered an official alternative for submission, as it is not supported by the bin/list-flight-paths wrapper script.
+Note, however, that this method is not considered an official alternative for submission, as it is not supported by the `bin/list-flight-paths` wrapper script.
 
-First, build the project with Maven. You must have Maven installed for this to work.
+First, build the project with Maven. You must have _[Maven installed](https://maven.apache.org/install.html)_ for this to work.
 
 ```shell
 make build
 ```
 
-Then run the jar file
+Then run the jar file (Java 24):
 ```shell
 java -jar target/flight-paths-1.0.0.jar "Castle Black" "King's Landing"
 ```
