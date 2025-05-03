@@ -2,7 +2,7 @@
 
 ![Coverage](./badges/jacoco.svg)
 
-A command-line Java application that calculates all possible flight paths between two cities in the world of **Game of Thrones**, showing the total cost for each valid route (north-to-south only). Built with Java 24, Picocli, and Docker.
+A command-line Java application that calculates all possible flight paths between two cities in the world of **Game of Thrones**, showing the total cost for each valid route (north-to-south only).
 
 ## 🧭 Overview
 
@@ -10,25 +10,18 @@ The application represents a simplified flight network as a **directed acyclic g
 
 ## 📦 Features
 
-- 100% test coverage, analysed using Jacoco
-- Accepts **city names** (e.g. `castle black`, `king's landing`) instead of indices.
+- Includes **unit tests** with 100% test coverage, analysed using [Jacoco](https://github.com/jacoco/jacoco).
+- Built with Java 24, [Picocli](https://picocli.info/), and Docker.
 - Displays **all valid southbound paths** with individual total costs.
 - Enforces **north-to-south travel** rules only.
-- Supports **Dockerized execution**.
-- Includes **unit tests** for correctness.
-
-## 🏰 Supported Cities
-
-| City Index | Name            |
-|------------|-----------------|
-| 0          | Castle Black     |
-| 1          | Winterfell       |
-| 2          | Riverrun         |
-| 3          | King's Landing   |
-
-> Note: City names are case-insensitive and should be input as strings (e.g., `"Castle Black"` or `"castle black"`).
+- Uses standard streams and exit codes. 
+- Application accepts case-insensitive city names input as strings (e.g., `"Castle Black"` or `"castle black"`).
 
 ## 🚀 Running with Docker (Recommended)
+
+**Prerequisite:** Install _[Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-install)_ 
+
+> Note: On a cold start, the `list-flight-paths` script will pull the Docker image from Docker Hub, this may take a few seconds depending on your internet speed - there will be no output while this happens as I've redirected the output to align with the assignment guidelines.
 
 To run from the command line using Docker:
 
@@ -36,13 +29,12 @@ To run from the command line using Docker:
 ./bin/list-flight-paths "Castle Black" "King's Landing"
 ```
 
-### Running locally with Java & Maven
+<details>
+<summary>Running locally with Java & Maven</summary>
 
-The recommended way to run this application via the containerised approach outlined above.  
-However, if you're familiar with Maven and Java and would like to 
-This is an alternative approach for experimentation purposes, not an alternative way to run the submission as it is not
-included in the `bin/list-flight-paths` wrapper script.
-
+The preferred way to run this application is using the containerized approach described above.
+That said, if you're comfortable with Maven and Java, you’re welcome to run it directly.
+Note, however, that this method is not considered an official alternative for submission, as it is not supported by the bin/list-flight-paths wrapper script.
 
 First, build the project with Maven. You must have Maven installed for this to work.
 
@@ -54,3 +46,4 @@ Then run the jar file
 ```shell
 java -jar target/flight-paths-1.0.0.jar "Castle Black" "King's Landing"
 ```
+</details>
