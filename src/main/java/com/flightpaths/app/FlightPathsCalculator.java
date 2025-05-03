@@ -16,15 +16,21 @@ public class FlightPathsCalculator {
     }
 
     public int getAllPaths(String departureCity, String destinationCity, List<String> results) {
-        int fromCityIndex = getCityIndex(departureCity);
-        int toCityIndex = getCityIndex(destinationCity);
-
-        if (fromCityIndex >= toCityIndex) {
-            System.out.printf("Invalid direction: you can only fly north to south.%n");
+        int from, to;
+        try {
+            from = getCityIndex(departureCity);
+            to = getCityIndex(destinationCity);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             return 1;
         }
 
-        findAllPathsCollect(fromCityIndex, toCityIndex, new ArrayList<>(), 0, results);
+        if (from >= to) {
+            System.out.println("Invalid direction: you can only fly north to south.");
+            return 1;
+        }
+
+        findAllPathsCollect(from, to, new ArrayList<>(), 0, results);
         return 0;
     }
 
@@ -62,7 +68,7 @@ public class FlightPathsCalculator {
                 .collect(Collectors.joining(" "));
     }
 
-    private int getCityIndex(String name) {
+    private int getCityIndex(String name) throws IllegalArgumentException {
         String normalized = name.toLowerCase().trim();
         if (!cities.containsKey(normalized)) {
             throw new IllegalArgumentException("Unknown city: " + name);
