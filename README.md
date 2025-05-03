@@ -1,5 +1,7 @@
 # ✈️ Flight Paths
 
+![Coverage](./badges/jacoco.svg)
+
 A command-line Java application that calculates all possible flight paths between two cities in the world of **Game of Thrones**, showing the total cost for each valid route (north-to-south only). Built with Java 24, Picocli, and Docker.
 
 ## 🧭 Overview
@@ -8,6 +10,7 @@ The application represents a simplified flight network as a **directed acyclic g
 
 ## 📦 Features
 
+- 100% test coverage, analysed using Jacoco
 - Accepts **city names** (e.g. `castle black`, `king's landing`) instead of indices.
 - Displays **all valid southbound paths** with individual total costs.
 - Enforces **north-to-south travel** rules only.
@@ -33,7 +36,7 @@ To run from the command line using Docker:
 ./bin/list-flight-paths "Castle Black" "King's Landing"
 ```
 
-### Running Locally with Java & Maven
+### Running locally with Java & Maven
 
 The recommended way to run this application via the containerised approach outlined above.  
 However, if you're familiar with Maven and Java and would like to 
