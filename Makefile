@@ -19,7 +19,6 @@ run:
 	docker run --rm --name flight-paths dockeropsengineer/flight-paths "$(from)" "$(to)"
 
 java-run:
-	# Usage: make run from="castle black" to="riverrun"
 	java -jar target/flight-paths-1.0.0.jar "$(from)" "$(to)"
 
 test-coverage:
@@ -34,4 +33,4 @@ coverage-badge-gen:
 test-suite: test-coverage check-coverage coverage-badge-gen
 
 .SILENT:
-.PHONY: default clean build docker-build run
+.PHONY: default clean test build docker-build run java-run test-coverage check-coverage coverage-badge-gen test-suite
