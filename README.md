@@ -25,10 +25,29 @@ The application represents a simplified flight network as a **directed acyclic g
 
 > Note: City names are case-insensitive and should be input as strings (e.g., `"Castle Black"` or `"castle black"`).
 
-## 🚀 Running with Docker
+## 🚀 Running with Docker (Recommended)
 
 To run from the command line using Docker:
 
 ```shell
-./bin/list-flight-paths "castle black" "king's landing"
+./bin/list-flight-paths "Castle Black" "King's Landing"
+```
+
+### Running Locally with Java & Maven
+
+The recommended way to run this application via the containerised approach outlined above.  
+However, if you're familiar with Maven and Java and would like to 
+This is an alternative approach for experimentation purposes, not an alternative way to run the submission as it is not
+included in the `bin/list-flight-paths` wrapper script.
+
+
+First, build the project with Maven. You must have Maven installed for this to work.
+
+```shell
+make build
+```
+
+Then run the jar file
+```shell
+java -jar target/flight-paths-1.0.0.jar "Castle Black" "King's Landing"
 ```
